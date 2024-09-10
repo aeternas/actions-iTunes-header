@@ -1,8 +1,7 @@
 # vim: expandtab tabstop=2 shiftwidth=2
 name: Test iTunes Header Server
 
-env:
-  PYTHONIOENCODING: utf-8
+env: PYTHONIOENCODING: utf-8
 
 on: 
   push:
@@ -26,7 +25,7 @@ jobs:
       - name: Set up git repository
         uses: actions/checkout@v2
       - name: Setup iTunes
-        uses: NyaMisty/actions-iTunes-header@master
+        uses: aeternas/actions-iTunes-header@master
         with:
           apple_id: ${{ secrets.APPLEID }}
           apple_id_pwd: ${{ secrets.APPLEID_PWD }}
@@ -39,6 +38,8 @@ jobs:
       #   env:
       #     SECRETS_CONTEXT: ${{ toJson(secrets) }}
         
+      - name: Just a lookup
+        run: tasklist
       - name: Test iTunes Server
         run: |
             curl -vv 127.0.0.1:9000
