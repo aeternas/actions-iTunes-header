@@ -86,7 +86,7 @@ runs:
 
     - name: Debug
       run: |
-        $mywinhost = ([System.Net.Dns]::GetHostByName($env:computerName).HostName)
+        $mywinhost=([System.Net.Dns]::GetHostByName($env:computerName).HostName)
         echo "mywinhost=$mywinhost" >> $GITHUB_ENV
         ipconfig /all
         tasklist
@@ -101,7 +101,8 @@ runs:
         ret=0
         echo "---------------- Before query headers ----------------"
         cat /c/get_header.log
-        curl --fail-with-body -vv ${{ env.mywinhost }}:9000 || ret=$?
+        $mywinhost1=([System.Net.Dns]::GetHostByName($env:computerName).HostName)
+        curl --fail-with-body -vv $($mywinhost1):9000 || ret=$?
         echo "---------------- After query headers ----------------"
         cat /c/get_header.log
         exit $ret
