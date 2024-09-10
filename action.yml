@@ -26,9 +26,9 @@ runs:
       shell: bash
 
     - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8.0'
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8.0'
     - name: Setup iTunes
       if: ${{ env.NEED_INIT == 1 }}
       run: |
