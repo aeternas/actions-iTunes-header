@@ -80,7 +80,7 @@ runs:
 
     - name: Debug
       run: |
-        netstat -ano | findstr :9000
+        [System.Net.Dns]::GetHostByName($env:computerName).HostName
         ipconfig /all
         tasklist
       working-directory: ${{ github.action_path }}
