@@ -77,10 +77,13 @@ runs:
         exit 0
       working-directory: ${{ github.action_path }}
       shell: cmd
+
     - name: Debug
       run: |
         ifconfig /all
         tasklist
+      working-directory: ${{ github.action_path }}
+      shell: cmd
     
     - name: Test Frida Header Server
       run: |
