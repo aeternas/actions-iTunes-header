@@ -112,7 +112,7 @@ runs:
         ret=0
         echo "---------------- Before query headers ----------------"
         cat /c/get_header.log
-        curl --fail-with-body -vv ${{ env.MYWINHOST }}:5000 || ret=$?
+        curl --fail-with-body -vv ${{ env.MYWINHOST }}:9000 || ret=$?
         echo "---------------- After query headers ----------------"
         cat /c/get_header.log
         exit $ret

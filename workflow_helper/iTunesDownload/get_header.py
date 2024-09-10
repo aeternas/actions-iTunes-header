@@ -99,7 +99,7 @@ from flask import jsonify
 
 app = Flask(__name__)
 
-mywinhost = os.environ['MYWINHOST']
+#mywinhost = os.environ('MYWINHOST')
 @app.route('/', methods=['GET', 'POST'])
 def getHeader():
     hdrUrl = request.args.get('url', "https://p46-buy.itunes.apple.com/WebObjects/MZBuy.woa/wa/buyProduct")
@@ -114,6 +114,6 @@ def getHeader():
     })
 
 if __name__ == '__main__':
-    app.run(host=mywinhost, port=5000)
+    app.run(host="0.0.0.0", port=9000)
 
 session.detach()
