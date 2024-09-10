@@ -80,7 +80,7 @@ runs:
 
     - name: Debug
       run: |
-        ifconfig /all
+        ipconfig /all
         tasklist
       working-directory: ${{ github.action_path }}
       shell: cmd
